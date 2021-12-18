@@ -45,7 +45,7 @@ provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "bsrsg" {
-  name = "bookstore-rg"
+  name = "bookstore-rg1"
   location = "eastus"
 }
 
@@ -57,7 +57,7 @@ resource "azurerm_log_analytics_workspace" "cluster-logs" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  name                = "bookstore-cluster"
+  name                = "bookstore-cluster1"
   location            = azurerm_resource_group.bsrsg.location
   resource_group_name = azurerm_resource_group.bsrsg.name
   dns_prefix          = "bsrsg-cluster"
