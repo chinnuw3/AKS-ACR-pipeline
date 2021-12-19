@@ -34,18 +34,18 @@ terraform {
       version = "~>2.0"
     }
   }
-  #   backend "azurerm" {
-  #   resource_group_name  = "test-rg"
-  #   storage_account_name = "devstorage009"
-  #   container_name       = "azuretfstate"
-  #   key                  = "dev.terraform.tfstate"
-  # }  
+    backend "azurerm" {
+    resource_group_name  = "test-rg"
+    storage_account_name = "devstorage009"
+    container_name       = "azuretfstate"
+    key                  = "dev.terraform.tfstate"
+  }  
 }
 provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "bsrsg" {
-  name = "bookstore-rg1"
+  name = "bookstore-rg"
   location = "eastus"
 }
 
@@ -57,10 +57,10 @@ resource "azurerm_log_analytics_workspace" "cluster-logs" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  name                = "bookstore-cluster1"
+  name                = "bookstore-cluster"
   location            = azurerm_resource_group.bsrsg.location
   resource_group_name = azurerm_resource_group.bsrsg.name
-  dns_prefix          = "bsrsg-cluster"
+  # dns_prefix          = "bsrsg-cluster"
 
   default_node_pool {
     name                 = "systempool"
