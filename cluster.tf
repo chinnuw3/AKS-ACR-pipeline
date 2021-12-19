@@ -38,7 +38,9 @@ terraform {
     resource_group_name  = "test-rg"
     storage_account_name = "devstorage009"
     container_name       = "azuretfstate"
-    key                  = "dev.terraform.tfstate"
+    key                  = "dev.azuretfstate"
+
+    access_key = "/qH2z0Fag3xPgLl6HVM88yOXF19DmGP38FrdKIS3BqqtjSIkj2zs+iZGYVfm/9p0aiweRtU5iyt2k36aibV4zQ=="
   }  
 }
 provider "azurerm" {
